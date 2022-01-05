@@ -19,9 +19,11 @@ public class Tester {
         boolean isfound=false;
         //make it a function also.......
         for (int indexArr1 = 0; indexArr1 < arr1.length; indexArr1++) {
+            isfound=false;
             for (int indexArr2 = 0; indexArr2 < arr2.length; indexArr2++) {
                 if (arr1[indexArr1]==arr2[indexArr2]){
                     isfound=true;
+                    break;
                 }
 
             }
