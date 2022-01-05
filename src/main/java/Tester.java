@@ -7,6 +7,39 @@ public class Tester {
         printArray(arr1);
         printArray(arr2);
         System.out.println(getBigNumber(arr1, 4));
+
+        //int[] distinct = getDistinct(arr1,arr2,ARRAY_SIZE);
+        printArray(getDistinct(arr1,arr2,ARRAY_SIZE));
+
+    }
+
+    public static int[] getDistinct(int[] arr1, int[] arr2, int size){
+        int[] distinct = fillMinus(size);
+        int pointer=0;
+        boolean isfound=false;
+        //make it a function also.......
+        for (int indexArr1 = 0; indexArr1 < arr1.length; indexArr1++) {
+            for (int indexArr2 = 0; indexArr2 < arr2.length; indexArr2++) {
+                if (arr1[indexArr1]==arr2[indexArr2]){
+                    isfound=true;
+                }
+
+            }
+            if (!isExists(distinct,arr1[indexArr1]) && !isfound){
+                distinct[pointer]=arr1[indexArr1];
+                pointer++;
+            }
+        }
+        return distinct;
+    }
+
+    public static boolean isExists(int[] distinct, int number){
+        for (int index = 0; index < distinct.length; index++) {
+            if (distinct[index]==number){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static int[] getArray(int arraySize) {
@@ -39,7 +72,14 @@ public class Tester {
         }
         return bigNumber;
     }
+
+    public static int[] fillMinus(int size){
+        int[] myArray = new int[size];
+        for (int index = 0; index < myArray.length; index++) {
+            myArray[index]=-1;
+        }
+        return myArray;
+    }
 }
 
 
-//-1,-1,-1,-1,-1,-1,-1,-1;
